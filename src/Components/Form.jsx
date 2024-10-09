@@ -44,10 +44,8 @@ function Form() {
     if (!student.name) tempErrors.name = "Name is required.";
     if (!student.email) tempErrors.email = "Email is required.";
     else if (!/\S+@\S+\.\S+/.test(student.email)) tempErrors.email = "Invalid Email.";
-    if (!student.password) tempErrors.password = "Password is required.";
-    if (!student.gender) tempErrors.gender = "Gender is required.";
-    if (!student.city) tempErrors.city = "City is required.";
-    if (!student.address) tempErrors.address = "Address is required.";
+    if (!student.hobby) tempErrors.password = "Hobby is required.";
+    ;
     setError(tempErrors);
     return Object.keys(tempErrors).length === 0;
   };
@@ -67,7 +65,10 @@ function Form() {
     localStorage.setItem("studentlist", JSON.stringify(newlist));
     setStudent({});
     setHobby([]);
+    console.log(student);
+    
   };
+
 
   let deleteData = (pos) => {
     let oldlist = JSON.parse(localStorage.getItem("studentlist"));
@@ -96,6 +97,7 @@ function Form() {
     }
     setList(newlist);
   };
+// console.log(list);
 
   return (
     <>
